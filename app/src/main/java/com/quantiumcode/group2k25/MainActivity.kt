@@ -10,8 +10,13 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.NavHostFragment
 import com.google.firebase.messaging.FirebaseMessaging
 import com.quantiumcode.group2k25.data.api.models.RegisterDeviceRequest
@@ -36,13 +41,38 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        
+        // Enable Edge-to-Edge
+        WindowCompat.setDecorFitsSystemWindows(window, false)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Apply Blur Effect on Android 12+ (S)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            try {
+                val blurEffect = android.graphics.RenderEffect.createBlurEffect(
+                    30f, 30f, android.graphics.Shader.TileMode.MIRROR
+                )
+                // Accessing the view directly since it might not be in the binding class yet if not rebuilt, 
+                // but usually it is. To be safe/clean with binding:
+                val glassView = binding.root.findViewById<android.view.View>(R.id.nav_glass_background)
+                glassView?.setRenderEffect(blurEffect)
+            } catch (e: Exception) {
+                Log.e("MainActivity", "Failed to apply blur effect", e)
+            }
+        }
+
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
         navController = navHostFragment.navController
+
+        // Apply bottom insets to the bottom navigation
+        ViewCompat.setOnApplyWindowInsetsListener(binding.navView) { v, windowInsets ->
+            val insets = windowInsets.getInsets(WindowInsetsCompat.Type.navigationBars())
+            v.updatePadding(bottom = insets.bottom)
+            windowInsets
+        }
 
         // Hide bottom nav initially (auth flow is default)
         binding.navView.gone()
@@ -120,12 +150,19 @@ class MainActivity : AppCompatActivity() {
         val navGraph = navController.navInflater.inflate(R.navigation.mobile_navigation)
         navController.graph = navGraph
 
+        val tabNavOptions = NavOptions.Builder()
+            .setEnterAnim(R.anim.fade_in)
+            .setExitAnim(R.anim.fade_out)
+            .setPopEnterAnim(R.anim.fade_in)
+            .setPopExitAnim(R.anim.fade_out)
+            .build()
+
         binding.navView.setOnItemSelectedListener { item ->
             if (navController.currentDestination?.id == item.itemId) return@setOnItemSelectedListener true
             // Pop back to home, then navigate to selected tab
             navController.popBackStack(R.id.navigation_home, false)
             if (item.itemId != R.id.navigation_home) {
-                navController.navigate(item.itemId)
+                navController.navigate(item.itemId, null, tabNavOptions)
             }
             true
         }

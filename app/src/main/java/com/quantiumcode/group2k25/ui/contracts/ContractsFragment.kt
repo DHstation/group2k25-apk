@@ -14,6 +14,7 @@ import com.quantiumcode.group2k25.R
 import com.quantiumcode.group2k25.databinding.FragmentContractsBinding
 import com.quantiumcode.group2k25.ui.contracts.adapter.ContractAdapter
 import com.quantiumcode.group2k25.util.Result
+import com.quantiumcode.group2k25.util.applyTopInsets
 import com.quantiumcode.group2k25.util.gone
 import com.quantiumcode.group2k25.util.visible
 
@@ -31,6 +32,8 @@ class ContractsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.rvContracts.applyTopInsets()
 
         val app = requireActivity().application as App
         viewModel = ViewModelProvider(this, ContractsViewModelFactory(app.container.contractRepository))

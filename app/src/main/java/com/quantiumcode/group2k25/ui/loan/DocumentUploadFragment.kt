@@ -15,6 +15,7 @@ import com.quantiumcode.group2k25.R
 import com.quantiumcode.group2k25.databinding.FragmentDocumentUploadBinding
 import com.quantiumcode.group2k25.util.FileUtils
 import com.quantiumcode.group2k25.util.Result
+import com.quantiumcode.group2k25.util.applyTopInsets
 import com.quantiumcode.group2k25.util.gone
 import com.quantiumcode.group2k25.util.showSnackbar
 import com.quantiumcode.group2k25.util.visible
@@ -48,6 +49,7 @@ class DocumentUploadFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.toolbar.applyTopInsets()
         binding.toolbar.setNavigationOnClickListener { findNavController().popBackStack() }
 
         val app = requireActivity().application as App
@@ -78,9 +80,9 @@ class DocumentUploadFragment : Fragment() {
             binding.tvAddressStatus.text = if (docs.contains("addressProof")) getString(R.string.doc_uploaded) else "Pendente"
             binding.tvUberStatus.text = if (docs.contains("uberProfile")) getString(R.string.doc_uploaded) else "Pendente"
 
-            if (docs.contains("cnh")) binding.btnUploadCnh.isEnabled = false
-            if (docs.contains("addressProof")) binding.btnUploadAddress.isEnabled = false
-            if (docs.contains("uberProfile")) binding.btnUploadUber.isEnabled = false
+            if (docs.contains("cnh")) { binding.btnUploadCnh.isEnabled = false; binding.btnUploadCnh.alpha = 0.4f }
+            if (docs.contains("addressProof")) { binding.btnUploadAddress.isEnabled = false; binding.btnUploadAddress.alpha = 0.4f }
+            if (docs.contains("uberProfile")) { binding.btnUploadUber.isEnabled = false; binding.btnUploadUber.alpha = 0.4f }
         }
     }
 

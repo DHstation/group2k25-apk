@@ -18,6 +18,8 @@ import com.quantiumcode.group2k25.MainActivity
 import com.quantiumcode.group2k25.R
 import com.quantiumcode.group2k25.databinding.FragmentOtpBinding
 import com.quantiumcode.group2k25.util.Result
+import com.quantiumcode.group2k25.util.applyTopInsets
+import com.quantiumcode.group2k25.util.centerInScrollView
 import com.quantiumcode.group2k25.util.gone
 import com.quantiumcode.group2k25.util.visible
 
@@ -36,6 +38,9 @@ class OtpFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.scrollView.applyTopInsets()
+        binding.content.centerInScrollView(binding.scrollView)
 
         phone = arguments?.getString("phone") ?: ""
         val app = requireActivity().application as App

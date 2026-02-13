@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/swipe_refresh"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/background_dark">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -17,9 +18,12 @@
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
+                android:layout_height="wrap_content"
+                android:minHeight="?attr/actionBarSize"
                 app:navigationIcon="@drawable/ic_arrow_back"
                 app:title="@string/loan_title"
+                app:navigationIconTint="@color/white"
+                app:titleTextColor="@color/white"
                 app:titleTextAppearance="@style/TextAppearance.Material3.TitleLarge" />
 
             <LinearLayout
@@ -28,138 +32,157 @@
                 android:orientation="vertical"
                 android:padding="16dp">
 
-            <!-- Status Card -->
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="2dp">
-
-                <LinearLayout
+                <!-- Status Card -->
+                <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/bg_glass_card"
+                    android:clipToOutline="true">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:text="Status da solicitação"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:orientation="vertical"
+                        android:padding="16dp">
 
-                    <TextView
-                        android:id="@+id/tv_status"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="12dp"
-                        android:paddingTop="4dp"
-                        android:paddingEnd="12dp"
-                        android:paddingBottom="4dp"
-                        android:textColor="@color/white"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:text="Status da solicitação"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/tv_status_description"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:textColor="?android:attr/textColorSecondary"
-                        android:textSize="14sp" />
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
+                        <TextView
+                            android:id="@+id/tv_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="12dp"
+                            android:paddingTop="4dp"
+                            android:paddingEnd="12dp"
+                            android:paddingBottom="4dp"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
 
-            <!-- Action Buttons -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_upload_earnings"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginBottom="8dp"
-                android:text="Enviar relatório de ganhos"
-                android:visibility="gone"
-                app:cornerRadius="12dp" />
+                        <TextView
+                            android:id="@+id/tv_status_description"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:textColor="@color/on_surface_variant_dark"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </FrameLayout>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_view_proposal"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginBottom="8dp"
-                android:text="Ver proposta"
-                android:visibility="gone"
-                app:cornerRadius="12dp" />
+                <!-- Action Buttons -->
+                <TextView
+                    android:id="@+id/btn_upload_earnings"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/bg_btn_primary_glass"
+                    android:gravity="center"
+                    android:text="Enviar relatório de ganhos"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_upload_documents"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginBottom="8dp"
-                android:text="Enviar documentos"
-                android:visibility="gone"
-                app:cornerRadius="12dp" />
+                <TextView
+                    android:id="@+id/btn_view_proposal"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/bg_btn_primary_glass"
+                    android:gravity="center"
+                    android:text="Ver proposta"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
 
-            <!-- Documents Status -->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_documents"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:visibility="gone"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="2dp">
+                <TextView
+                    android:id="@+id/btn_upload_documents"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/bg_btn_primary_glass"
+                    android:gravity="center"
+                    android:text="Enviar documentos"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
 
-                <LinearLayout
+                <!-- Documents Status -->
+                <FrameLayout
+                    android:id="@+id/card_documents"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_glass_card"
+                    android:clipToOutline="true"
+                    android:visibility="gone">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:text="Documentos"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:orientation="vertical"
+                        android:padding="16dp">
 
-                    <TextView
-                        android:id="@+id/tv_doc_earnings"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="4dp"
-                        android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:text="Documentos"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/tv_doc_cnh"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="4dp"
-                        android:textSize="14sp" />
+                        <TextView
+                            android:id="@+id/tv_doc_earnings"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:textColor="@color/on_surface_variant_dark"
+                            android:textSize="14sp" />
 
-                    <TextView
-                        android:id="@+id/tv_doc_address"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="4dp"
-                        android:textSize="14sp" />
+                        <TextView
+                            android:id="@+id/tv_doc_cnh"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:textColor="@color/on_surface_variant_dark"
+                            android:textSize="14sp" />
 
-                    <TextView
-                        android:id="@+id/tv_doc_uber"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="14sp" />
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
+                        <TextView
+                            android:id="@+id/tv_doc_address"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:textColor="@color/on_surface_variant_dark"
+                            android:textSize="14sp" />
 
-            <ProgressBar
-                android:id="@+id/progress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="32dp"
-                android:visibility="gone" />
+                        <TextView
+                            android:id="@+id/tv_doc_uber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/on_surface_variant_dark"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </FrameLayout>
+
+                <ProgressBar
+                    android:id="@+id/progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="32dp"
+                    android:indeterminateTint="@color/primary"
+                    android:visibility="gone" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

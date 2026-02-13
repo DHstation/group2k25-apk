@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="8dp"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="2dp">
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/bg_glass_card"
+    android:clipToOutline="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,6 +12,7 @@
         android:orientation="vertical"
         android:padding="16dp">
 
+        <!-- Top row: contract + status badge -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -29,13 +29,15 @@
                     android:id="@+id/tv_contract_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="?android:attr/textColorSecondary"
+                    android:textColor="@color/on_surface_variant_dark"
                     android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/tv_installment_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -49,14 +51,22 @@
                 android:paddingEnd="12dp"
                 android:paddingBottom="4dp"
                 android:textColor="@color/white"
-                android:textSize="12sp"
+                android:textSize="11sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:background="@color/glass_border" />
+
+        <!-- Bottom row: date/amount + pay button -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -70,25 +80,45 @@
                     android:id="@+id/tv_due_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="?android:attr/textColorSecondary"
+                    android:textColor="@color/on_surface_variant_dark"
                     android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/tv_amount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
+                    android:layout_marginTop="2dp"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <com.google.android.material.button.MaterialButton
+            <LinearLayout
                 android:id="@+id/btn_pay"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:text="@string/pay_pix"
-                android:textSize="13sp"
-                android:visibility="gone"
-                app:cornerRadius="8dp" />
+                android:layout_height="42dp"
+                android:background="@drawable/bg_btn_pix"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginEnd="6dp"
+                    android:contentDescription="PIX"
+                    android:src="@drawable/ic_pix" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pay_pix"
+                    android:textColor="@color/secondary"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-</com.google.android.material.card.MaterialCardView>
+</FrameLayout>

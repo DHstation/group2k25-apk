@@ -12,6 +12,7 @@ import com.quantiumcode.group2k25.R
 import com.quantiumcode.group2k25.databinding.FragmentSimulatorBinding
 import com.quantiumcode.group2k25.util.CurrencyFormatter
 import com.quantiumcode.group2k25.util.Result
+import com.quantiumcode.group2k25.util.applyTopInsets
 import com.quantiumcode.group2k25.util.gone
 import com.quantiumcode.group2k25.util.visible
 
@@ -29,6 +30,7 @@ class SimulatorFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.toolbar.applyTopInsets()
         binding.toolbar.setNavigationOnClickListener { findNavController().popBackStack() }
 
         val app = requireActivity().application as App
@@ -52,11 +54,13 @@ class SimulatorFragment : Fragment() {
                     binding.progress.visible()
                     binding.cardResult.gone()
                     binding.btnSimulate.isEnabled = false
+                    binding.btnSimulate.alpha = 0.4f
                 }
                 is Result.Success -> {
                     binding.progress.gone()
                     binding.cardResult.visible()
                     binding.btnSimulate.isEnabled = true
+                    binding.btnSimulate.alpha = 1f
                     val data = result.data
                     if (data.qualified) {
                         binding.tvResultTitle.text = getString(R.string.simulator_qualified)
@@ -73,6 +77,7 @@ class SimulatorFragment : Fragment() {
                 is Result.Error -> {
                     binding.progress.gone()
                     binding.btnSimulate.isEnabled = true
+                    binding.btnSimulate.alpha = 1f
                     binding.tilEarnings.error = result.message
                 }
             }

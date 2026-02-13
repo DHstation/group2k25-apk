@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.quantiumcode.group2k25.R
 import com.quantiumcode.group2k25.databinding.FragmentPixKeyBinding
 import com.quantiumcode.group2k25.util.ClipboardHelper
+import com.quantiumcode.group2k25.util.applyTopInsets
 
 class PixKeyFragment : Fragment() {
 
@@ -23,6 +24,7 @@ class PixKeyFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.toolbar.applyTopInsets()
         binding.toolbar.setNavigationOnClickListener { findNavController().popBackStack() }
 
         binding.btnCopy.setOnClickListener {

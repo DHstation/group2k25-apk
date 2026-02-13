@@ -20,7 +20,11 @@
         tools:layout="@layout/fragment_contracts">
         <action
             android:id="@+id/action_contracts_to_detail"
-            app:destination="@id/contractDetailFragment" />
+            app:destination="@id/contractDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <fragment
@@ -33,7 +37,11 @@
             app:argType="string" />
         <action
             android:id="@+id/action_detail_to_payment"
-            app:destination="@id/paymentFragment" />
+            app:destination="@id/paymentFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <!-- Installments -->
@@ -44,7 +52,11 @@
         tools:layout="@layout/fragment_installments">
         <action
             android:id="@+id/action_installments_to_payment"
-            app:destination="@id/paymentFragment" />
+            app:destination="@id/paymentFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <!-- Payment -->
@@ -66,13 +78,25 @@
         tools:layout="@layout/fragment_more">
         <action
             android:id="@+id/action_more_to_simulator"
-            app:destination="@id/simulatorFragment" />
+            app:destination="@id/simulatorFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_more_to_loan"
-            app:destination="@id/loanRequestFragment" />
+            app:destination="@id/loanRequestFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_more_to_pix"
-            app:destination="@id/pixKeyFragment" />
+            app:destination="@id/pixKeyFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <fragment
@@ -88,10 +112,18 @@
         tools:layout="@layout/fragment_loan_request">
         <action
             android:id="@+id/action_loan_to_documents"
-            app:destination="@id/documentUploadFragment" />
+            app:destination="@id/documentUploadFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_loan_to_proposal"
-            app:destination="@id/proposalFragment" />
+            app:destination="@id/proposalFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <fragment

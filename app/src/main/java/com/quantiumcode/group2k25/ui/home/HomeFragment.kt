@@ -11,6 +11,7 @@ import com.quantiumcode.group2k25.App
 import com.quantiumcode.group2k25.R
 import com.quantiumcode.group2k25.databinding.FragmentHomeBinding
 import com.quantiumcode.group2k25.util.DateFormatter
+import com.quantiumcode.group2k25.util.applyTopInsets
 import com.quantiumcode.group2k25.util.gone
 import com.quantiumcode.group2k25.util.visible
 
@@ -27,6 +28,8 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.contentContainer.applyTopInsets()
 
         val app = requireActivity().application as App
         viewModel = ViewModelProvider(this, HomeViewModelFactory(

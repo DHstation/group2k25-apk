@@ -12,6 +12,7 @@ import com.quantiumcode.group2k25.R
 import com.quantiumcode.group2k25.databinding.FragmentProposalBinding
 import com.quantiumcode.group2k25.util.CurrencyFormatter
 import com.quantiumcode.group2k25.util.Result
+import com.quantiumcode.group2k25.util.applyTopInsets
 import com.quantiumcode.group2k25.util.gone
 import com.quantiumcode.group2k25.util.showSnackbar
 import com.quantiumcode.group2k25.util.visible
@@ -30,6 +31,7 @@ class ProposalFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.toolbar.applyTopInsets()
         binding.toolbar.setNavigationOnClickListener { findNavController().popBackStack() }
 
         val app = requireActivity().application as App
@@ -49,6 +51,7 @@ class ProposalFragment : Fragment() {
                     binding.tvDetails.text = result.data.details
                     if (result.data.status != "AGUARDANDO_ACEITE") {
                         binding.btnAccept.isEnabled = false
+                        binding.btnAccept.alpha = 0.4f
                         binding.btnAccept.text = getString(R.string.proposal_accepted)
                     }
                 }
@@ -73,6 +76,7 @@ class ProposalFragment : Fragment() {
                 is Result.Error -> {
                     binding.progress.gone()
                     binding.btnAccept.isEnabled = true
+                    binding.btnAccept.alpha = 1f
                     binding.root.showSnackbar(result.message)
                 }
             }

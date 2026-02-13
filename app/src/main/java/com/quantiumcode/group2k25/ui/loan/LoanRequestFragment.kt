@@ -14,6 +14,7 @@ import com.quantiumcode.group2k25.R
 import com.quantiumcode.group2k25.data.api.models.LeadInfo
 import com.quantiumcode.group2k25.databinding.FragmentLoanRequestBinding
 import com.quantiumcode.group2k25.util.Result
+import com.quantiumcode.group2k25.util.applyTopInsets
 import com.quantiumcode.group2k25.util.gone
 import com.quantiumcode.group2k25.util.visible
 
@@ -30,6 +31,8 @@ class LoanRequestFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.toolbar.applyTopInsets()
 
         val app = requireActivity().application as App
         viewModel = ViewModelProvider(this, LoanRequestViewModelFactory(app.container.leadRepository))

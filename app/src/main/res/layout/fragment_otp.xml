@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scroll_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:background="@color/background_dark">
 
     <LinearLayout
+        android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:padding="32dp">
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
             android:layout_marginBottom="8dp"
+            android:fontFamily="sans-serif-condensed"
+            android:letterSpacing="0.15"
             android:text="@string/otp_title"
+            android:textAllCaps="true"
             android:textColor="@color/primary"
-            android:textSize="28sp"
+            android:textSize="30sp"
             android:textStyle="bold" />
 
         <TextView
@@ -28,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
             android:gravity="center"
-            android:textColor="?android:attr/textColorSecondary"
+            android:textColor="@color/on_surface_variant_dark"
             android:textSize="14sp" />
 
         <LinearLayout
@@ -48,6 +53,7 @@
                 android:gravity="center"
                 android:inputType="number"
                 android:maxLength="1"
+                android:textColor="@color/white"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 android:importantForAutofill="no" />
@@ -62,6 +68,7 @@
                 android:gravity="center"
                 android:inputType="number"
                 android:maxLength="1"
+                android:textColor="@color/white"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 android:importantForAutofill="no" />
@@ -76,6 +83,7 @@
                 android:gravity="center"
                 android:inputType="number"
                 android:maxLength="1"
+                android:textColor="@color/white"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 android:importantForAutofill="no" />
@@ -90,6 +98,7 @@
                 android:gravity="center"
                 android:inputType="number"
                 android:maxLength="1"
+                android:textColor="@color/white"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 android:importantForAutofill="no" />
@@ -104,6 +113,7 @@
                 android:gravity="center"
                 android:inputType="number"
                 android:maxLength="1"
+                android:textColor="@color/white"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 android:importantForAutofill="no" />
@@ -118,6 +128,7 @@
                 android:gravity="center"
                 android:inputType="number"
                 android:maxLength="1"
+                android:textColor="@color/white"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 android:importantForAutofill="no" />
@@ -129,6 +140,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
+            android:indeterminateTint="@color/primary"
             android:visibility="gone" />
 
         <TextView
@@ -146,6 +158,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/otp_resend"
+            android:textColor="@color/primary"
             android:enabled="false" />
 
         <com.google.android.material.button.MaterialButton
@@ -153,7 +166,8 @@
             style="@style/Widget.Material3.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/otp_another_number" />
+            android:text="@string/otp_another_number"
+            android:textColor="@color/on_surface_variant_dark" />
 
     </LinearLayout>
 </ScrollView>

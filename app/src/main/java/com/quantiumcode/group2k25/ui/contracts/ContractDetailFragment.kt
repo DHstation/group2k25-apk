@@ -17,6 +17,7 @@ import com.quantiumcode.group2k25.databinding.FragmentContractDetailBinding
 import com.quantiumcode.group2k25.ui.contracts.adapter.InstallmentAdapter
 import com.quantiumcode.group2k25.util.CurrencyFormatter
 import com.quantiumcode.group2k25.util.Result
+import com.quantiumcode.group2k25.util.applyTopInsets
 import com.quantiumcode.group2k25.util.gone
 import com.quantiumcode.group2k25.util.visible
 
@@ -35,6 +36,7 @@ class ContractDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.toolbar.applyTopInsets()
         binding.toolbar.setNavigationOnClickListener { findNavController().popBackStack() }
 
         val contractId = arguments?.getString("contractId") ?: return

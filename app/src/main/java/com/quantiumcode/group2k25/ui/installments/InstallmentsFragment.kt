@@ -15,6 +15,7 @@ import com.quantiumcode.group2k25.databinding.FragmentInstallmentsBinding
 import com.quantiumcode.group2k25.ui.installments.adapter.InstallmentListAdapter
 import com.quantiumcode.group2k25.util.CurrencyFormatter
 import com.quantiumcode.group2k25.util.Result
+import com.quantiumcode.group2k25.util.applyTopInsets
 import com.quantiumcode.group2k25.util.gone
 import com.quantiumcode.group2k25.util.visible
 
@@ -32,6 +33,8 @@ class InstallmentsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.contentContainer.applyTopInsets()
 
         val app = requireActivity().application as App
         viewModel = ViewModelProvider(this, InstallmentsViewModelFactory(app.container.installmentRepository))

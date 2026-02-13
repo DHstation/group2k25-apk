@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_dark"
     android:fillViewport="true">
 
     <LinearLayout
@@ -13,9 +14,12 @@
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
             app:navigationIcon="@drawable/ic_arrow_back"
             app:title="@string/simulator_title"
+            app:navigationIconTint="@color/white"
+            app:titleTextColor="@color/white"
             app:titleTextAppearance="@style/TextAppearance.Material3.TitleLarge" />
 
         <LinearLayout
@@ -29,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
                 android:text="@string/simulator_subtitle"
-                android:textColor="?android:attr/textColorSecondary"
+                android:textColor="@color/on_surface_variant_dark"
                 android:textSize="14sp" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -40,22 +44,36 @@
                 android:layout_marginBottom="16dp"
                 android:hint="@string/simulator_earnings_hint"
                 app:prefixText="R$"
+                app:prefixTextColor="@color/on_surface_variant_dark"
+                app:boxCornerRadiusBottomEnd="14dp"
+                app:boxCornerRadiusBottomStart="14dp"
+                app:boxCornerRadiusTopEnd="14dp"
+                app:boxCornerRadiusTopStart="14dp"
+                app:boxStrokeColor="@color/box_stroke_color"
+                app:boxStrokeWidth="1dp"
+                app:boxStrokeWidthFocused="2dp"
+                app:hintTextColor="@color/primary"
                 app:errorEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_earnings"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="numberDecimal" />
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.button.MaterialButton
+            <TextView
                 android:id="@+id/btn_simulate"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
+                android:background="@drawable/bg_btn_primary_glass"
+                android:gravity="center"
                 android:text="@string/simulator_calculate"
+                android:textColor="@color/primary"
                 android:textSize="16sp"
-                app:cornerRadius="12dp" />
+                android:textStyle="bold" />
 
             <ProgressBar
                 android:id="@+id/progress"
@@ -63,17 +81,18 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
+                android:indeterminateTint="@color/primary"
                 android:visibility="gone" />
 
             <!-- Result Card -->
-            <com.google.android.material.card.MaterialCardView
+            <FrameLayout
                 android:id="@+id/card_result"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:visibility="gone"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp">
+                android:background="@drawable/bg_glass_card"
+                android:clipToOutline="true"
+                android:visibility="gone">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -86,6 +105,7 @@
                         android:id="@+id/tv_result_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/white"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
@@ -105,10 +125,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:gravity="center"
-                        android:textColor="?android:attr/textColorSecondary"
+                        android:textColor="@color/on_surface_variant_dark"
                         android:textSize="14sp" />
                 </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
+            </FrameLayout>
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

@@ -3,6 +3,15 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <!-- Glass Colors -->
+    <color name="glass_background">#B31A1A1A</color> <!-- 70% opacity dark -->
+    <color name="glass_border">#1AFFFFFF</color> <!-- 10% opacity white -->
+    <color name="glass_highlight">#0DFFFFFF</color> <!-- 5% opacity white for gradients -->
+    
+    <!-- Brand Glass -->
+    <color name="primary_glass">#26FF6B00</color> <!-- 15% opacity orange -->
+
+
     <!-- Brand Colors (Orange - matches web #FF6B00) -->
     <color name="primary">#FFFF6B00</color>
     <color name="primary_dark">#FFEA580C</color>

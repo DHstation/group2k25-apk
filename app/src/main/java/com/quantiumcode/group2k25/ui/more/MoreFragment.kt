@@ -7,12 +7,15 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import com.quantiumcode.group2k25.App
 import com.quantiumcode.group2k25.BuildConfig
 import com.quantiumcode.group2k25.MainActivity
 import com.quantiumcode.group2k25.R
 import com.quantiumcode.group2k25.databinding.FragmentMoreBinding
+import com.quantiumcode.group2k25.util.applyTopInsets
 
 class MoreFragment : Fragment() {
 
@@ -27,6 +30,8 @@ class MoreFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.contentContainer.applyTopInsets()
 
         val app = requireActivity().application as App
         viewModel = ViewModelProvider(this, MoreViewModelFactory(app.container.authRepository))
@@ -49,14 +54,23 @@ class MoreFragment : Fragment() {
         }
 
         binding.btnLogout.setOnClickListener {
-            MaterialAlertDialogBuilder(requireContext())
-                .setTitle(getString(R.string.more_logout))
-                .setMessage(getString(R.string.more_logout_confirm))
-                .setPositiveButton(getString(R.string.yes)) { _, _ ->
-                    viewModel.logout()
-                }
-                .setNegativeButton(getString(R.string.no), null)
-                .show()
+            val dialog = Dialog(requireContext())
+            dialog.setContentView(R.layout.dialog_logout)
+            dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            dialog.window?.setLayout(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
+            dialog.window?.setDimAmount(0.6f)
+
+            dialog.findViewById<View>(R.id.btn_cancel).setOnClickListener {
+                dialog.dismiss()
+            }
+            dialog.findViewById<View>(R.id.btn_confirm).setOnClickListener {
+                dialog.dismiss()
+                viewModel.logout()
+            }
+            dialog.show()
         }
 
         viewModel.logoutComplete.observe(viewLifecycleOwner) { done ->

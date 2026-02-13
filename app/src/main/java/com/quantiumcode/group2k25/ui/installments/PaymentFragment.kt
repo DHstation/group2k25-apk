@@ -12,6 +12,7 @@ import com.quantiumcode.group2k25.databinding.FragmentPaymentBinding
 import com.quantiumcode.group2k25.util.ClipboardHelper
 import com.quantiumcode.group2k25.util.CurrencyFormatter
 import com.quantiumcode.group2k25.util.Result
+import com.quantiumcode.group2k25.util.applyTopInsets
 import com.quantiumcode.group2k25.util.gone
 import com.quantiumcode.group2k25.util.visible
 
@@ -30,6 +31,7 @@ class PaymentFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.toolbar.applyTopInsets()
         binding.toolbar.setNavigationOnClickListener { findNavController().popBackStack() }
 
         installmentId = arguments?.getString("installmentId") ?: return
@@ -61,6 +63,7 @@ class PaymentFragment : Fragment() {
                     binding.tvPixCode.text = result.data.pixCopiaECola
                     binding.btnRegenerate.gone()
                     binding.btnCopy.isEnabled = true
+                    binding.btnCopy.alpha = 1f
                     viewModel.startCountdown(result.data.expiresAt)
                 }
                 is Result.Error -> {
@@ -68,6 +71,7 @@ class PaymentFragment : Fragment() {
                     binding.cardPix.visible()
                     binding.tvPixCode.text = result.message
                     binding.btnCopy.isEnabled = false
+                    binding.btnCopy.alpha = 0.4f
                 }
             }
         }
