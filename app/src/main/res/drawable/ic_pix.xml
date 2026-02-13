@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- PIX logo simplified - diamond shape with arrows -->
+    <path
+        android:fillColor="#22C55E"
+        android:pathData="M9.04,3.96L3.96,9.04C2.68,10.32 2.68,12.37 3.96,13.66L9.04,18.74C10.32,20.02 12.37,20.02 13.66,18.74L18.74,13.66C20.02,12.37 20.02,10.32 18.74,9.04L13.66,3.96C12.37,2.68 10.32,2.68 9.04,3.96ZM11.35,5.38L7.05,9.68L9.17,11.8C9.56,12.19 9.56,12.83 9.17,13.22L7.05,15.34L11.35,19.64C11.74,20.03 12.37,20.03 12.76,19.64L17.06,15.34L14.94,13.22C14.55,12.83 14.55,12.19 14.94,11.8L17.06,9.68L12.76,5.38C12.37,4.99 11.74,4.99 11.35,5.38Z" />
+</vector>
