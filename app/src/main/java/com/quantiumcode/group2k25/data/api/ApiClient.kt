@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit
 
 object ApiClient {
 
-    private const val BASE_URL = "https://backend.esteticaslin.com/api/v1/"
+    private const val BASE_URL = "https://api.group2k25.com/api/v1/"
 
     fun create(tokenManager: TokenManager): Retrofit {
         val loggingInterceptor = HttpLoggingInterceptor().apply {
