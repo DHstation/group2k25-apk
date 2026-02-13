@@ -1,0 +1,135 @@
+<resources>
+    <string name="app_name">Group 2k25</string>
+    <string name="title_home">Início</string>
+    <string name="title_contracts">Contratos</string>
+    <string name="title_installments">Parcelas</string>
+    <string name="title_more">Mais</string>
+
+    <!-- Auth -->
+    <string name="login_title">Entrar</string>
+    <string name="login_subtitle">Digite seu número de telefone para receber o código de verificação via WhatsApp</string>
+    <string name="phone_hint">Telefone</string>
+    <string name="phone_placeholder">(00) 00000-0000</string>
+    <string name="btn_continue">Continuar</string>
+    <string name="otp_title">Verificação</string>
+    <string name="otp_subtitle">Digite o código de 6 dígitos enviado para</string>
+    <string name="otp_resend">Reenviar código</string>
+    <string name="otp_another_number">Usar outro número</string>
+    <string name="otp_wait">Reenviar em %ds</string>
+    <string name="otp_verifying">Verificando...</string>
+
+    <!-- Home -->
+    <string name="welcome_message">Olá, %s!</string>
+    <string name="welcome_default">Olá!</string>
+    <string name="home_quick_actions">Ações rápidas</string>
+    <string name="home_next_payment">Próximo pagamento</string>
+    <string name="home_overdue">Parcelas atrasadas</string>
+    <string name="home_no_overdue">Nenhuma parcela atrasada</string>
+    <string name="home_contracts">Meus contratos</string>
+    <string name="home_installments">Minhas parcelas</string>
+    <string name="home_simulator">Simulador</string>
+    <string name="home_loan_request">Minha solicitação</string>
+
+    <!-- Contracts -->
+    <string name="contract_number">Contrato #%d</string>
+    <string name="contract_detail">Detalhes do Contrato</string>
+    <string name="contract_principal">Valor principal</string>
+    <string name="contract_total">Valor total</string>
+    <string name="contract_interest">Taxa de juros</string>
+    <string name="contract_progress">Progresso</string>
+    <string name="contract_remaining">Valor restante</string>
+    <string name="contract_next_due">Próximo vencimento</string>
+    <string name="contract_installments">Parcelas</string>
+    <string name="contract_empty">Nenhum contrato encontrado</string>
+    <string name="contract_empty_desc">Seus contratos aparecerão aqui quando disponíveis</string>
+
+    <!-- Installments -->
+    <string name="installment_number">Parcela %1$d/%2$d</string>
+    <string name="installment_summary">Resumo</string>
+    <string name="installment_total_due">Total a pagar</string>
+    <string name="installment_overdue_count">%d parcela(s) atrasada(s)</string>
+    <string name="installment_filter_all">Todas</string>
+    <string name="installment_filter_pending">Pendentes</string>
+    <string name="installment_filter_overdue">Atrasadas</string>
+    <string name="installment_filter_paid">Pagas</string>
+    <string name="installment_empty">Nenhuma parcela encontrada</string>
+    <string name="installment_empty_desc">Suas parcelas aparecerão aqui</string>
+
+    <!-- Payment -->
+    <string name="payment_title">Pagamento PIX</string>
+    <string name="payment_amount">Valor</string>
+    <string name="payment_expires">Expira em</string>
+    <string name="payment_expired">Expirado</string>
+    <string name="payment_copy">Copiar código PIX</string>
+    <string name="payment_regenerate">Gerar novo PIX</string>
+    <string name="payment_instructions">1. Copie o código PIX acima\n2. Abra o app do seu banco\n3. Escolha pagar com PIX copia e cola\n4. Cole o código e confirme o pagamento</string>
+    <string name="payment_generating">Gerando PIX...</string>
+
+    <!-- Status Labels -->
+    <string name="status_active">Ativo</string>
+    <string name="status_overdue">Atrasado</string>
+    <string name="status_paid">Pago</string>
+    <string name="status_cancelled">Cancelado</string>
+    <string name="status_pending">Pendente</string>
+    <string name="status_settled">Quitado</string>
+
+    <!-- More -->
+    <string name="more_simulator">Simulador de empréstimo</string>
+    <string name="more_loan_request">Solicitar empréstimo</string>
+    <string name="more_pix_key">Chave PIX</string>
+    <string name="more_logout">Sair</string>
+    <string name="more_logout_confirm">Deseja realmente sair?</string>
+    <string name="more_version">Versão %s</string>
+
+    <!-- Simulator -->
+    <string name="simulator_title">Simulador</string>
+    <string name="simulator_subtitle">Descubra quanto você pode solicitar com base nos seus ganhos semanais</string>
+    <string name="simulator_earnings_hint">Ganhos semanais (R$)</string>
+    <string name="simulator_calculate">Calcular</string>
+    <string name="simulator_qualified">Você se qualifica!</string>
+    <string name="simulator_not_qualified">Você ainda não se qualifica</string>
+    <string name="simulator_approved_amount">Valor aprovado</string>
+
+    <!-- Loan Request -->
+    <string name="loan_title">Solicitação de empréstimo</string>
+    <string name="loan_step_new">Nova solicitação</string>
+    <string name="loan_step_report">Relatório enviado</string>
+    <string name="loan_step_analysis">Em análise</string>
+    <string name="loan_step_proposal">Proposta disponível</string>
+    <string name="loan_step_accepted">Proposta aceita</string>
+    <string name="loan_step_documents">Aguardando documentos</string>
+    <string name="loan_step_docs_received">Documentos recebidos</string>
+    <string name="loan_step_converted">Convertido</string>
+
+    <!-- Documents -->
+    <string name="doc_upload_title">Envio de documentos</string>
+    <string name="doc_cnh">CNH (Carteira de motorista)</string>
+    <string name="doc_address_proof">Comprovante de endereço</string>
+    <string name="doc_uber_profile">Perfil Uber (print da tela)</string>
+    <string name="doc_upload">Enviar</string>
+    <string name="doc_uploaded">Enviado</string>
+    <string name="doc_earnings">Relatório de ganhos</string>
+
+    <!-- Proposal -->
+    <string name="proposal_title">Proposta de empréstimo</string>
+    <string name="proposal_accept">Aceitar proposta</string>
+    <string name="proposal_accepted">Proposta aceita!</string>
+
+    <!-- PIX Key -->
+    <string name="pix_key_title">Chave PIX</string>
+    <string name="pix_key_label">Chave PIX para pagamentos</string>
+    <string name="pix_key_value">financeiro@group2k25.com</string>
+    <string name="pix_key_copy">Copiar chave PIX</string>
+
+    <!-- General -->
+    <string name="loading">Carregando...</string>
+    <string name="error_generic">Ocorreu um erro. Tente novamente.</string>
+    <string name="error_connection">Sem conexão com a internet</string>
+    <string name="retry">Tentar novamente</string>
+    <string name="cancel">Cancelar</string>
+    <string name="confirm">Confirmar</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="pay_pix">Pagar PIX</string>
+    <string name="btn_ok">OK</string>
+</resources>

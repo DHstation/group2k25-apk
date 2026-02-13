@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Brand Colors (Orange - matches web #FF6B00) -->
+    <color name="primary">#FFFF6B00</color>
+    <color name="primary_dark">#FFEA580C</color>
+    <color name="primary_light">#FFFB923C</color>
+    <color name="primary_container">#FFFFF7ED</color>
+    <color name="primary_10">#1AFF6B00</color>
+    <color name="primary_20">#33FF6B00</color>
+
+    <!-- Accent/Success (Green - matches web #22C55E) -->
+    <color name="secondary">#FF22C55E</color>
+    <color name="secondary_dark">#FF16A34A</color>
+    <color name="secondary_light">#FF4ADE80</color>
+    <color name="secondary_container">#FFF0FDF4</color>
+
+    <!-- Error/Destructive -->
+    <color name="error">#FFEF4444</color>
+    <color name="error_dark">#FFDC2626</color>
+    <color name="error_container">#FFFEF2F2</color>
+
+    <!-- Warning -->
+    <color name="warning">#FFFAA90E</color>
+    <color name="warning_dark">#FFD97706</color>
+    <color name="warning_container">#FFFFFBEB</color>
+
+    <!-- Status Colors -->
+    <color name="status_active">#FF22C55E</color>
+    <color name="status_overdue">#FFEF4444</color>
+    <color name="status_paid">#FF3B82F6</color>
+    <color name="status_cancelled">#FF9E9E9E</color>
+    <color name="status_pending">#FFFAA90E</color>
+
+    <!-- Light Theme Surfaces -->
+    <color name="surface_light">#FFFFFFFF</color>
+    <color name="surface_variant_light">#FFF5F5F5</color>
+    <color name="background_light">#FFF7F7F7</color>
+    <color name="on_surface_light">#FF171717</color>
+    <color name="on_surface_variant_light">#FF737373</color>
+    <color name="border_light">#FFE5E5E5</color>
+
+    <!-- Dark Theme Surfaces -->
+    <color name="surface_dark">#FF121212</color>
+    <color name="surface_variant_dark">#FF1F1F1F</color>
+    <color name="background_dark">#FF0A0A0A</color>
+    <color name="on_surface_dark">#FFFAFAFA</color>
+    <color name="on_surface_variant_dark">#FFA1A1A1</color>
+    <color name="border_dark">#FF2E2E2E</color>
+</resources>

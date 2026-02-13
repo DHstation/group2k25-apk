@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <!-- Home -->
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.quantiumcode.group2k25.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <!-- Contracts -->
+    <fragment
+        android:id="@+id/navigation_contracts"
+        android:name="com.quantiumcode.group2k25.ui.contracts.ContractsFragment"
+        android:label="@string/title_contracts"
+        tools:layout="@layout/fragment_contracts">
+        <action
+            android:id="@+id/action_contracts_to_detail"
+            app:destination="@id/contractDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/contractDetailFragment"
+        android:name="com.quantiumcode.group2k25.ui.contracts.ContractDetailFragment"
+        android:label="@string/contract_detail"
+        tools:layout="@layout/fragment_contract_detail">
+        <argument
+            android:name="contractId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_detail_to_payment"
+            app:destination="@id/paymentFragment" />
+    </fragment>
+
+    <!-- Installments -->
+    <fragment
+        android:id="@+id/navigation_installments"
+        android:name="com.quantiumcode.group2k25.ui.installments.InstallmentsFragment"
+        android:label="@string/title_installments"
+        tools:layout="@layout/fragment_installments">
+        <action
+            android:id="@+id/action_installments_to_payment"
+            app:destination="@id/paymentFragment" />
+    </fragment>
+
+    <!-- Payment -->
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.quantiumcode.group2k25.ui.installments.PaymentFragment"
+        android:label="@string/payment_title"
+        tools:layout="@layout/fragment_payment">
+        <argument
+            android:name="installmentId"
+            app:argType="string" />
+    </fragment>
+
+    <!-- More -->
+    <fragment
+        android:id="@+id/navigation_more"
+        android:name="com.quantiumcode.group2k25.ui.more.MoreFragment"
+        android:label="@string/title_more"
+        tools:layout="@layout/fragment_more">
+        <action
+            android:id="@+id/action_more_to_simulator"
+            app:destination="@id/simulatorFragment" />
+        <action
+            android:id="@+id/action_more_to_loan"
+            app:destination="@id/loanRequestFragment" />
+        <action
+            android:id="@+id/action_more_to_pix"
+            app:destination="@id/pixKeyFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/simulatorFragment"
+        android:name="com.quantiumcode.group2k25.ui.simulator.SimulatorFragment"
+        android:label="@string/simulator_title"
+        tools:layout="@layout/fragment_simulator" />
+
+    <fragment
+        android:id="@+id/loanRequestFragment"
+        android:name="com.quantiumcode.group2k25.ui.loan.LoanRequestFragment"
+        android:label="@string/loan_title"
+        tools:layout="@layout/fragment_loan_request">
+        <action
+            android:id="@+id/action_loan_to_documents"
+            app:destination="@id/documentUploadFragment" />
+        <action
+            android:id="@+id/action_loan_to_proposal"
+            app:destination="@id/proposalFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/documentUploadFragment"
+        android:name="com.quantiumcode.group2k25.ui.loan.DocumentUploadFragment"
+        android:label="@string/doc_upload_title"
+        tools:layout="@layout/fragment_document_upload" />
+
+    <fragment
+        android:id="@+id/proposalFragment"
+        android:name="com.quantiumcode.group2k25.ui.loan.ProposalFragment"
+        android:label="@string/proposal_title"
+        tools:layout="@layout/fragment_proposal" />
+
+    <fragment
+        android:id="@+id/pixKeyFragment"
+        android:name="com.quantiumcode.group2k25.ui.pix.PixKeyFragment"
+        android:label="@string/pix_key_title"
+        tools:layout="@layout/fragment_pix_key" />
+
+</navigation>

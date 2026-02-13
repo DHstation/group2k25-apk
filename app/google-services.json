@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "829670344526",
+    "project_id": "group2k25",
+    "storage_bucket": "group2k25.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:829670344526:android:99896e599c90a47040401f",
+        "android_client_info": {
+          "package_name": "com.quantiumcode.group2k25"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6AqWBZKfkUiGJy1jnSQamTkGyBq7lAQg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
